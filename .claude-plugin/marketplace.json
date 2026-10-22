@@ -1,0 +1,11 @@
+{
+  "name": "goosetroopza",
+  "owner": { "name": "GooseTroopza" },
+  "plugins": [
+    {
+      "name": "cache-coach",
+      "source": "./",
+      "description": "Band above the prompt: context size, prompt-cache countdown and what to do (fine / compact / clear), with keep-warm and auto-compact-before-expiry ticks"
+    }
+  ]
+}

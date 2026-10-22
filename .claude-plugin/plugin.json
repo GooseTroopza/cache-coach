@@ -1,0 +1,48 @@
+{
+  "name": "cache-coach",
+  "version": "0.1.0",
+  "description": "Band above the prompt: context size, prompt-cache countdown and what to do (fine / compact / clear), with keep-warm and auto-compact-before-expiry ticks",
+  "author": {
+    "name": "GooseTroopza"
+  },
+  "license": "MIT",
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "ttlMinutes": {
+      "type": "number",
+      "title": "Cache TTL (minutes)",
+      "description": "How long the main thread's prompt cache lives after a request. Claude Code's main thread uses the 1-hour cache.",
+      "default": 60
+    },
+    "leadMinutes": {
+      "type": "number",
+      "title": "Act this many minutes before expiry",
+      "description": "Keep-warm pings and auto-compaction fire this long before the cache would expire.",
+      "default": 5
+    },
+    "warnAtTokens": {
+      "type": "number",
+      "title": "Suggest compacting from (tokens)",
+      "description": "Below this, compaction barely pays back.",
+      "default": 300000
+    },
+    "compactAtTokens": {
+      "type": "number",
+      "title": "Auto-compact at or above (tokens)",
+      "description": "Auto-compact before cache expiry only when the context is at least this big.",
+      "default": 400000
+    },
+    "keepAliveMaxHours": {
+      "type": "number",
+      "title": "Stop keep-warm pings after (hours)",
+      "description": "Pings past roughly 16 hours cost more than one re-cache.",
+      "default": 8
+    },
+    "autoCompactDefault": {
+      "type": "boolean",
+      "title": "Auto-compact ticked by default",
+      "description": "Each session starts with auto-compact before expiry on.",
+      "default": true
+    }
+  }
+}
